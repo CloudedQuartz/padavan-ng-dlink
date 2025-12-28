@@ -1544,9 +1544,7 @@ static INT32 HQA_MACBbpRegBulkRead(
 	INT32 Ret = 0;
 	UINT32 Offset;
 	UINT16 Len, Tmp;
-	INT debug_lvl = DebugLevel;
-
-	DebugLevel = DBG_LVL_OFF;
+;
 	MTWF_LOG(DBG_CAT_TEST, DBG_SUBCAT_ALL, DBG_LVL_TRACE, ("%s\n", __func__));
 	memcpy(&Offset, HqaCmdFrame->Data, 4);
 	Offset = PKTL_TRAN_TO_HOST(Offset);
@@ -1566,7 +1564,6 @@ static INT32 HQA_MACBbpRegBulkRead(
 
 	RTMP_IO_READ_BULK(pAd, HqaCmdFrame->Data + 2, Offset, (Len << 2));/* unit in four bytes*/
 	ResponseToQA(HqaCmdFrame, WRQ, 2 + (Len << 2), Ret);
-	DebugLevel = debug_lvl;
 	return Ret;
 }
 
