@@ -1833,7 +1833,6 @@ INT32 MT_ATEDumpLog(RTMP_ADAPTER *pAd, struct _ATE_LOG_DUMP_CB *log_cb, UINT32 l
 #else
 	INT32 (*dump_func)(struct _ATE_LOG_DUMP_ENTRY, INT idx) = NULL;
 #endif
-	INT debug_lvl = DebugLevel;
 	CHAR Log_type[64];
 #ifdef LOGDUMP_TO_FILE
 	INT len = 5 + 2 * 3 + 5 + 1;
@@ -1893,7 +1892,6 @@ INT32 MT_ATEDumpLog(RTMP_ADAPTER *pAd, struct _ATE_LOG_DUMP_CB *log_cb, UINT32 l
 	}
 
 #endif
-	DebugLevel = DBG_LVL_OFF;
 	OS_SPIN_LOCK(&log_cb->lock);
 	log_cb->is_dumping = TRUE;
 	OS_SPIN_UNLOCK(&log_cb->lock);
@@ -1945,7 +1943,6 @@ INT32 MT_ATEDumpLog(RTMP_ADAPTER *pAd, struct _ATE_LOG_DUMP_CB *log_cb, UINT32 l
 	OS_SPIN_LOCK(&log_cb->lock);
 	log_cb->is_dumping = FALSE;
 	OS_SPIN_UNLOCK(&log_cb->lock);
-	DebugLevel = debug_lvl;
 #ifdef LOGDUMP_TO_FILE
 	MT_ATEReleaseLogFd(&log_cb->fd);
 	log_cb->file_idx++;
