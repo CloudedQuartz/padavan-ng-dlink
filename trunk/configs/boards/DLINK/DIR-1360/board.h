@@ -9,12 +9,12 @@
 #define BOARD_BOOT_TIME		30
 #define BOARD_FLASH_TIME	120
 #define BOARD_GPIO_BTN_RESET	8
-#undef  BOARD_GPIO_BTN_WPS      18
+#define  BOARD_GPIO_BTN_WPS      18
 #undef  BOARD_GPIO_LED_ALL      
-#undef  BOARD_GPIO_LED_WIFI     4
+#define  BOARD_GPIO_LED_WIFI     4
 #define BOARD_GPIO_LED_POWER	14	/* 6: red, 10: yellow, 8: blue */
 #define BOARD_GPIO_LED_LAN	10
-#undef  BOARD_GPIO_LED_WAN  16
+#define  BOARD_GPIO_LED_WAN  16
 #define BOARD_GPIO_LED_USB	10
 #undef  BOARD_GPIO_LED_ROUTER
 #define BOARD_GPIO_PWR_USB_ON	1	/* 1: 5V Power ON, 0: 5V Power OFF */
